@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grafiques Heritage</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: url('background image.png') no-repeat center center/cover;
+            color: white;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: 400;
+            transition: all 0.3s ease;
+            padding-bottom: 5px;
+        }
+
+        .nav-links a:hover {
+            border-bottom: 2px solid white;
+        }
+
+        .btn {
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            color: black;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 150px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 20px 0;
+        }
+
+        .testimonials {
+    display: flex;
+    gap: 30px;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    
+}
+
+.testimonial-box {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 30px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: rotate(15deg);
+}
+
+.testimonial-box1 {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 30px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: rotate(-5deg);
+}
+
+.testimonial-box2 {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 30px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: rotate(0deg);
+}
+
+.testimonial-box3 {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 30px 25px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    flex: 1;
+    min-width: 300px;
+    max-width: 380px;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transform: rotate(5deg);
+}
+
+.quote {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.author {
+    margin-top: auto;
+    font-size: 14px;
+}
+
+.name {
+    font-weight: 200;
+    margin-bottom: 5px;
+    color: #fff;
+}
+
+.title {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+        .view-more a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            border-bottom: 2px solid white;
+        }
+
+        .hamburger {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            width: 35px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .hamburger div {
+            width: 30px;
+            height: 3px;
+            background: white;
+            transition: 0.3s;
+        }
+
+        /* Rotate lines when active */
+        .hamburger.active div:nth-child(1) {
+            transform: translateY(8px) rotate(45deg);
+        }
+
+        .hamburger.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+            transform: translateY(-8px) rotate(-45deg);
+        }
+
+        /* Navigation Menu */
+        .menu {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 250px;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            transition: right 0.3s ease-in-out;
+        }
+
+        .menu a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .menu a:hover {
+            color: lightgray;
+        }
+
+        /* Show Menu */
+        .menu.active {
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+    
+        <div class="hamburger" onclick="toggleMenu()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+        <div class="menu">
+            <a href="home.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="price.html">Pricing</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+    <section class="hero">
+        <h1>Our Services</h1>
+        <p>Creative, user-centric websites to drive business growth.</p>
+        <button class="btn">Book a call with us →</button>
+    </section>
+
+    <section class="testimonials">
+        <div class="testimonial-box1">
+            <p class="quote">"We saw a 30% increase in leads and a noticeable boost in revenue. Their creativity and attention to detail are unmatched!”</p>
+            <div class="author">
+                <p class="name">- Sarah K.</p>
+                <p class="title">CEO of StartupHub</p>
+            </div>
+        </div>
+        <div class="testimonial-box2">
+            <p class="quote">"Our new site helped us double our client inquiries within the first quarter. The creativity and strategy they brought to the project were invaluable.”</p>
+            <div class="author">
+                <p class="name">- Emily</p>
+                <p class="title">Marketing Director at InnovateX</p>
+            </div>
+        </div>
+        <div class="testimonial-box3">
+            <p class="quote">"Their design expertise helped us achieve a 40% increase in sales, which has had a significant impact on our growth.”</p>
+        <div class="author">
+            <p class="name">- Michael H.</p>
+            <p class="title">Founder of ClaritySolutions</p>
+        </div>
+    </div>
+</section>
+
+    <div class="view-more">
+        <a href="#">View more</a>
+    </div>
+    <script>
+        function toggleMenu() {
+            document.querySelector(".menu").classList.toggle("active");
+            document.querySelector(".hamburger").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
